@@ -14,11 +14,13 @@ return (
                     fontSize: 32,
                     fontWeight: 700,
                     color: "#333",
+                    fontFamily: "Lato",
                 }}>Hello, Devs</Text>
                 <Text style={
                     {
                         fontSize: 14,
-                        color: '#666'
+                        color: '#666',
+                        fontFamily: "Lato",
                     }
                 }>14 tasks today</Text>
             </View>
@@ -37,7 +39,7 @@ return (
                 <TextInput
                     placeholder="Search"
                     style={styles.searchInput}
-                    placeholderTextColor="#999"
+                    placeholderTextColor="#000000"
                 />
             </View>
             <TouchableOpacity style={styles.tuneIconContainer}>
@@ -45,7 +47,11 @@ return (
             </TouchableOpacity>
         </View>
         <View>
-            <Text style={{ fontSize: 20, fontWeight: 700, paddingTop: 6 }}>Categories</Text>
+            <Text style={{
+                fontSize: 20,
+                fontWeight: 700,
+                paddingTop: 6,
+            }}>Categories</Text>
             <View>
                 <FlatList
                     data={cardData}
@@ -64,13 +70,20 @@ return (
             </View>
         </View>
         <View>
-            <Text style={{ fontSize: 20, lineHeight: 24, fontWeight: 700, paddingTop: 27}}>Ongoing Task</Text>
+            <Text style={{
+                fontSize: 20,
+                lineHeight: 24,
+                fontWeight: 700,
+                paddingTop: 18,
+                paddingBottom: 8,
+                fontFamily: "Lato",
+            }}>Ongoing Task</Text>
             <View>
             <FlatList
                 data={listData}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => (
-                    <ListComponent title={item.title} subtitle={item.subtitle} />
+                    <ListComponent title={item.title} />
                 )}
             />
             </View>
@@ -91,20 +104,20 @@ const cardData = [
 
 const listData = [
     { id: 1, title: 'Workout',  },
-    { id: 2, title: 'Study', },
+    { id: 2, title: 'Pray', },
     { id: 3, title: 'Game',  },
     { id: 4, title: 'Code',  },
     { id: 5, title: 'Dance',  },
     { id: 6, title: 'Fun',  },
     { id: 7, title: 'Cook',  },
     { id: 8, title: 'Chores',  },
-    { id: 9, title: 'Workout',  },
-    { id: 10, title: 'Study',  },
-    { id: 11, title: 'Game',  },
-    { id: 12, title: 'Code',  },
-    { id: 13, title: 'Dance',  },
-    { id: 14, title: 'Fun',  },
-    { id: 15, title: 'Cook',  },
+    { id: 9, title: 'Sing',  },
+    { id: 10, title: 'Dance',  },
+    { id: 11, title: 'Learn',  },
+    { id: 12, title: 'Wash',  },
+    { id: 13, title: 'Swim',  },
+    { id: 14, title: 'Fix',  },
+    { id: 15, title: 'Golf',  },
 ];
 
 const CardComponent = ({ title, subtitle, image }) => {
@@ -129,7 +142,12 @@ const ListComponent = ({ title }) => {
     return (
         <View style={styles.card2}>
             <View style={styles.cardContent}>
-                <Text style={styles.title}>{title}</Text>
+                <Text style={{
+                        fontSize: 18,
+                        fontWeight: 'bold',
+                        paddingTop: 30,
+                        paddingHorizontal: 20,
+                    }}>{title}</Text>
             </View>
         </View>
     );
@@ -138,7 +156,7 @@ const ListComponent = ({ title }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#F7F0E8',
         paddingHorizontal: 16,
         paddingTop: 40,
     },
@@ -152,33 +170,34 @@ const styles = StyleSheet.create({
     },
     imageButton: {
         marginLeft: 'auto', 
-        width: 40,
-        height: 40,
+        width: 45,
+        height: 45,
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 20,
+        borderRadius: 40,
         borderWidth: 1,
-        borderColor: '#ccc',
+        borderColor: '#FFFFFF',
+        backgroundColor: '#FFFFFF',
     },
     headerText: {
         fontSize: 32,
         fontWeight: 'bold',
         color: '#333',
-        flex: 1, 
-        lineHeight: 10,
+        fontFamily: "Lato",
     },
     subheaderText: {
         fontSize: 12,
         color: '#666',
+        fontFamily: "Lato",
     },
     imageContainer1: {
         marginRight: 1,
-        alignSelf: "center",
+        alignSelf: 'center',
         paddingBottom: 20,
     },
     imageStyle: {
-        height: 120,
-        width: 120,
+        height: 145,
+        width: 150,
         paddingBottom: 4,
     },
     searchAndFilterContainer: {
@@ -190,64 +209,54 @@ const styles = StyleSheet.create({
         flex: 1.5,
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#f2f2f2',
+        backgroundColor: '#FBF9F7',
         borderRadius: 8,
         paddingHorizontal: 12,
         marginRight: 16,
+        padding: 5,
     },
     searchIcon: {
         marginRight: 8,
-        color: '#999',
+        color: '#000000',
     },
     searchInput: {
         flex: 1,
         height: 40,
         fontSize: 16,
-        color: '#333',
+        color: '#FBF9F7',
+        fontFamily: "Lato",
     },
     tuneIconContainer: {
-        padding: 8,
-        width: '11%',
-        backgroundColor: 'green',
-        borderRadius: 14,
+        padding: 13,
+        width: '13%',
+        backgroundColor: '#F0522F',
+        borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
     },
     tuneIcon: {
-        color: '#ccc',
+        color: '#FFFFFF',
     },
     card1: {
         backgroundColor: '#fff',
-        borderRadius: 8,
-        shadowColor: '#000',
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.23,
-        shadowRadius: 2.62,
+        borderRadius: 16,
         elevation: 4,
         marginHorizontal: 16,
         marginVertical: 8,
-        width: 180,
-        height: 200,
+        width: 200,
+        height: 220,
 
     },
     card2: {
         backgroundColor: '#fff',
+        borderColor: '#E8D1BA',
+        borderWidth: 1,
         borderRadius: 8,
-        shadowColor: '#000',
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.23,
-        shadowRadius: 2.62,
         elevation: 4,
         marginHorizontal: 16,
         marginVertical: 8,
         width: 354,
-        height: 128,
+        height: 142,
     },
     cardContent: {
         flex: 1,
@@ -260,18 +269,20 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         paddingTop: 12,
         paddingHorizontal: 16,
+        fontFamily: "Lato",
     },
     subtitle: {
         fontSize: 14,
         color: '#666',
         paddingHorizontal: 16,
+        fontFamily: "Lato",
     },
     cardContainer: {
         paddingTop: 6,
     },
     imageContainer2: {
         marginBottom: 8,
-        alignSelf: "center",
+        alignSelf: 'center',
     },
     image2: {
         width: 151,
@@ -279,10 +290,3 @@ const styles = StyleSheet.create({
     },
 });
 
-/* width: 151px;
-height: 132px;
-top: 298px;
-left: 41px;
-gap: 0px;
-opacity: 0px;
-*/
